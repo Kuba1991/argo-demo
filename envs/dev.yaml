@@ -3,7 +3,7 @@ replicaCount: 3
 image:
   repository: 986216741511.dkr.ecr.us-east-1.amazonaws.com/artemis
   pullPolicy: IfNotPresent
-  tag: "2.0.0"
+  tag: "1.0.0"
 
 imagePullSecrets:
   - name: regcred
