@@ -2,7 +2,6 @@ replicaCount: 3
 
 image:
   repository: 986216741511.dkr.ecr.us-east-1.amazonaws.com/artemis
-  tag: "2.0.0"
   pullPolicy: IfNotPresent
   tag: "2.0.0"
 
@@ -19,7 +18,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
     acme.cert-manager.io/http01-edit-in-place: "true"
