@@ -5,7 +5,7 @@ image:
   pullPolicy: IfNotPresent
   tag: ""
 imagePullSecrets:
-  - regcred
+  - name: regcred
 
 service:
     type: ClusterIP
