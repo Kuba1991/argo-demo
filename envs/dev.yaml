@@ -1,4 +1,4 @@
-replicaCount: 3
+replicaCount: 5
 
 image:
   repository: 986216741511.dkr.ecr.us-east-1.amazonaws.com/artemis
