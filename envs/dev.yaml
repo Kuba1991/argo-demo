@@ -1,33 +1,34 @@
 replicaCount: 3
 
 image:
-  repository: 986216741511.dkr.ecr.us-east-1.amazonaws.com/artemis:2.0.0
+  repository: 986216741511.dkr.ecr.us-east-1.amazonaws.com/artemis
+  tag: "2.0.0"
   pullPolicy: IfNotPresent
-  tag: ""
+  tag: "2.0.0"
+
 imagePullSecrets:
   - name: regcred
 
 service:
-    type: ClusterIP
-    port: 5000
+  type: ClusterIP
+  port: 5000
 
-# This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
   enabled: true
   className: "nginx"
-  annotations: {}
-      kubernetes.io/ingress.class: "nginx"
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-      cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
-      acme.cert-manager.io/http01-edit-in-place: "true"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
+    acme.cert-manager.io/http01-edit-in-place: "true"
   hosts:
     - host: dev-artemis.infra-kuba.com
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls: []
+  tls:
     - secretName: dev-artemis-tls
       hosts:
         - dev-artemis.infra-kuba.com
